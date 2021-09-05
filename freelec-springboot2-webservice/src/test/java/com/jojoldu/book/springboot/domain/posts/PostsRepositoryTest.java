@@ -15,24 +15,20 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest
 public class PostsRepositoryTest {
 
-    @Autowired 
+    @Autowired
     PostsRepository postsRepository;
 
     @AfterEach
-    public void cleanup(){
+    public void cleanup() {
         postsRepository.deleteAll();
     }
 
     @Test
-    public void getPostWithTitleAndContent(){
-        String title ="title";
-        String content ="content";
+    public void getPostWithTitleAndContent() {
+        String title = "title";
+        String content = "content";
 
-        postsRepository.save(Posts.builder()
-                                    .title(title)
-                                    .content(content)
-                                    .author("author")
-                                    .build());
+        postsRepository.save(Posts.builder().title(title).content(content).author("author").build());
 
         List<Posts> postsList = postsRepository.findAll();
 
@@ -41,5 +37,5 @@ public class PostsRepositoryTest {
         assertThat(posts.getContent()).isEqualTo(content);
 
     }
-    
+
 }
