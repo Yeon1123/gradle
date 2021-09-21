@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 public class PostsSaveRequestDto {
+    //DTO클래스는 컨트롤러에서 씀!
     // View layer
     private String title;
     private String content;
@@ -22,7 +23,11 @@ public class PostsSaveRequestDto {
     }
 
     public Posts toEntity() {
-        return Posts.builder().title(title).content(content).author(author).build();
+        return Posts.builder()
+                .title(title)
+                .content(content)
+                .author(author)
+                .build();
     }
 
 }
