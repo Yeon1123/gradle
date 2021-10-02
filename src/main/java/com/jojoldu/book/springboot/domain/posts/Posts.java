@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.jojoldu.book.springboot.domain.BasetimeEntity;
+
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,7 +19,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor // 파라미터가 없는 기본 생성자 = public Posts(){}
 @Entity // table과 링크될 클래스입니다!
-public class Posts {
+public class Posts extends BasetimeEntity {
     // DB layer
     @Id // PK, generated value로 생성 규칙 설정. Identity는 autoincrement를 위한 설정임.
     @GeneratedValue(strategy = GenerationType.IDENTITY)
