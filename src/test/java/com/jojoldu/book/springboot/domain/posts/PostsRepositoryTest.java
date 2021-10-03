@@ -1,6 +1,5 @@
 package com.jojoldu.book.springboot.domain.posts;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -50,10 +49,10 @@ public class PostsRepositoryTest {
         List<Posts> postsList = postsRepository.findAll();
 
         Posts posts = postsList.get(0);
-        System.out.println("CreateDate? : " + posts.getCreatedDate() + " , ModifiedDate? : " + posts.getModifiDate());
+        System.out.println("CreateDate? : " + posts.getCreatedDate() + " , ModifiedDate? : " + posts.getModifiedDate());
         
         assertThat(posts.getCreatedDate()).isAfter(now);
-        assertThat(posts.getModifiDate()).isAfter(now);
+        assertThat(posts.getModifiedDate()).isAfter(now);
 
     }
 
