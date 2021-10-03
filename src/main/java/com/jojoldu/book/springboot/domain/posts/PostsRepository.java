@@ -1,6 +1,9 @@
 package com.jojoldu.book.springboot.domain.posts;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 /**
  *DAO와 같은 역할. DB Layer 접근자. Entity Class 와 PK타입을 상속받아 기본 CRUD를 생성 
@@ -8,5 +11,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */ 
 
 public interface PostsRepository extends JpaRepository<Posts, Long> {
+
+    @Query("SELECT p FROM Posts p ORDER BY p.id DESC")
+    List<Posts> findAllDesc();
     
 }
